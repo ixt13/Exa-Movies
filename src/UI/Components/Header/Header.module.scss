@@ -1,18 +1,24 @@
+.header {
+	width: 100%;
+}
 .title {
-	width: 1200px;
-	height: 46px;
+	height: 36px;
+
 	background-color: #1e1e24;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	h1 {
+		font-size: 20px;
+	}
 }
 .navigation {
-	width: 1200px;
-	height: 56px;
+	height: 46px;
 	background-color: #e54b4b;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
 	ul {
 		display: flex;
 		flex-direction: row;
@@ -27,8 +33,37 @@
 		justify-content: center;
 		align-items: center;
 		gap: 10px;
+		transition: all 0.1s ease;
+		color: #ffffff;
+		&:hover {
+			cursor: pointer;
+
+			color: #1e1e24;
+		}
 		p {
-			font-size: 18px;
+			font-size: 16px;
 		}
 	}
+}
+
+.popup {
+	position: absolute;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: all 0.2s cubic-bezier(0.39, 0.575, 0.565, 1), visibility 0s 0.2s;
+	overflow: hidden;
+}
+
+.popupHidden {
+	height: 0px;
+}
+.popupVisible {
+	height: 276px;
+	visibility: visible;
+}
+
+.popupOverflowAuto {
+	overflow: visible;
 }

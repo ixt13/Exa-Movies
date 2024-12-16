@@ -1,0 +1,28 @@
+.container {
+	background-color: #3e3e3e;
+	height: 100%;
+}
+.categories {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(7, 1fr);
+
+	padding: 14px;
+
+	grid-auto-flow: column;
+	grid-column-gap: 34px;
+	grid-row-gap: 8px;
+}
+.element {
+	cursor: pointer;
+	padding: 4px;
+	border-radius: 4px;
+
+	&:hover {
+		background-color: #e56464;
+	}
+}
+
+.elementActive {
+	background-color: #e54b4b !important;
+}

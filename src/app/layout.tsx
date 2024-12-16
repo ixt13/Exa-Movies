@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 
+import { Header } from '@/UI/Components/Header/Header'
 import { Kumbh_Sans } from 'next/font/google'
 import './globals.css'
 
@@ -29,6 +30,7 @@ export default function RootLayout({
 					alignItems: 'center',
 				}}
 			>
+				<Header />
 				{children}
 			</body>
 		</html>

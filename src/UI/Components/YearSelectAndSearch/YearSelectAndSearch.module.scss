@@ -1,0 +1,90 @@
+.yearSelectAndSearch {
+	grid-row: -3 / -1;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+}
+
+.selectYearStatic {
+	background-color: #fa956e;
+	height: 40px;
+	border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 4px;
+
+	p {
+		font-size: 14px;
+	}
+	svg {
+		transform: rotate(180deg);
+		transition: all 0.2s ease;
+	}
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+.selectYearStaticSelected {
+	background-color: #ff804e;
+	border-radius: 8px 8px 0px 0px;
+	svg {
+		transform: rotate(270deg);
+	}
+}
+
+.search {
+	height: 40px;
+	width: 40px;
+	border-radius: 8px;
+	border: currentColor solid 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: currentColor;
+	&:hover {
+		color: #fa956e;
+		border-color: #fa956e;
+		cursor: pointer;
+	}
+}
+.selectYear {
+	position: relative;
+	width: 124px;
+}
+.selectYearPopup {
+	border-top: 2px solid currentColor;
+	padding: 2px 0px 2px 0px;
+	position: absolute;
+	background-color: #ff804e;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.yearsTextContent {
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
+	color: currentColor;
+	padding: 4px 0px 4px 0px;
+
+	&:hover {
+		background-color: #e54b4b;
+	}
+}
+
+.selectYearPopupHidden {
+	display: none;
+	overflow: hidden;
+}
+.selectYearPopupVisible {
+	display: flex;
+	overflow: auto;
+	height: 400px;
+}
