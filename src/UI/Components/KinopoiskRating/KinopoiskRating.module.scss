@@ -1,0 +1,17 @@
+.ratingInfo {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: row;
+	gap: 8px;
+	height: 100%;
+	p {
+		font-size: 28px;
+	}
+}
+
+.ratingInfoIcon {
+	height: 64%;
+	width: 64%;
+	stroke-width: 4px;
+}

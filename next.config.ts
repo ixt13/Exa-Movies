@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+	images: {
+		domains: ['image.openmoviedb.com'], // Добавьте ваш домен здесь
+	},
+}
 
-export default nextConfig;
+export default nextConfig
