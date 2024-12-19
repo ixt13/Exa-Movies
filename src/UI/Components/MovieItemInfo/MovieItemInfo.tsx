@@ -9,7 +9,12 @@ interface iMovieInfo {
 	movieInfo: iTodo
 	key: number
 }
+
 export const MovieItemInfo: FC<iMovieInfo> = ({ movieInfo, key }) => {
+	const minutesConverter = (mins: number): string =>
+		`${Math.floor(mins / 60)} ч ${mins % 60} мин`
+	console.log(movieInfo.movieLength)
+
 	return (
 		<div key={key} className={styles.movieItemInfo}>
 			<div className={styles.movieItemInfoContent}>
@@ -26,11 +31,14 @@ export const MovieItemInfo: FC<iMovieInfo> = ({ movieInfo, key }) => {
 
 					<div className={styles.movieItemInfoContentTextContainer}>
 						<h3>{movieInfo.name}</h3>
-						<p className={styles.firstDescription}>2011, 1 ч 52 мин</p>
-						<p className={styles.secondDescription}>
-							Франция • драма  Режиссёр: Оливье Накаш В ролях: Франсуа Клюзе,
-							Омар Си
+						<p className={styles.firstDescription}>
+							{(movieInfo.year, minutesConverter(movieInfo.movieLength))}
 						</p>
+						<div className={styles.secondDescription}>
+							{movieInfo.countries.length
+								? movieInfo.countries.map(object => object.name).join(', ')
+								: ''}
+						</div>
 					</div>
 				</div>
 

@@ -16,7 +16,7 @@ export const RatingInfo = ({ icon, rating }: iRatingInfo) => {
 				<ImdbIcon className={styles.ratingInfoIcon} />
 			)}
 
-			<p>{rating}</p>
+			<p>{rating.toFixed(1)}</p>
 		</div>
 	)
 }

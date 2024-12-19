@@ -27,7 +27,7 @@ export interface iTodo {
 	year: number
 	ageRating: number
 	backdrop?: backdrop
-	countries: countries
+	countries: countries[]
 }
 export interface KinopoiskResponse {
 	docs: iTodo[]
