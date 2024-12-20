@@ -1,7 +1,7 @@
 import { ImdbIcon } from '../Svg/Imdbcon/ImdbIcon'
 import { KinopoiskIcon } from '../Svg/KinopoiskIcon/KinopoiskIcon'
 
-import styles from './KinopoiskRating.module.scss'
+import styles from './RatingInfo.module.scss'
 
 interface iRatingInfo {
 	icon: 'kinopoisk' | 'imdb'
@@ -16,7 +16,7 @@ export const RatingInfo = ({ icon, rating }: iRatingInfo) => {
 				<ImdbIcon className={styles.ratingInfoIcon} />
 			)}
 
-			<p>{rating.toFixed(1)}</p>
+			<p>{rating > 0.1 ? rating.toFixed(1) : '--'}</p>
 		</div>
 	)
 }

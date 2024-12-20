@@ -5,20 +5,21 @@
 	flex-direction: row;
 	gap: 8px;
 	height: 100%;
-	width: 100%;
+
 	p {
 		display: flex;
+		min-width: 44px;
 
+		padding: 0px 6px 0px 6px;
 		align-items: center;
 		justify-content: center;
-		font-size: 28px;
-		height: 100%;
-		width: 100%;
+
+		font-size: 20px;
 	}
 }
 
 .ratingInfoIcon {
-	height: 64%;
-	width: 64%;
+	min-width: 54px;
+	min-height: 54px;
 	stroke-width: 4px;
 }

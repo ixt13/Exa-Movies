@@ -8,9 +8,6 @@ interface iHomeScreenProps {
 }
 
 export default function HomeScreen({ movies }: iHomeScreenProps) {
-	if (movies.length <= 0) {
-		return
-	}
 	return (
 		<div className={styles.homeWrapper}>
 			<h1>250 лучших фильмов</h1>
