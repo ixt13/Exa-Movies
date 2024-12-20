@@ -9,14 +9,17 @@ interface iHomeScreenProps {
 
 export default function HomeScreen({ movies }: iHomeScreenProps) {
 	return (
-		<div className={styles.homeWrapper}>
-			<h1>250 лучших фильмов</h1>
-			<div
-				style={{ borderTop: '1px solid currentColor  ', width: '100%' }}
-			></div>
-			{movies?.map((el, index) => (
-				<MovieItemInfo movieInfo={el} key={el.id} />
-			))}
+		<div>
+			<div className={styles.carousel}></div>
+			<div className={styles.homeWrapper}>
+				<h1>250 лучших фильмов</h1>
+				<div
+					style={{ borderTop: '1px solid currentColor  ', width: '100%' }}
+				></div>
+				{movies?.map((el, index) => (
+					<MovieItemInfo movieInfo={el} key={el.id} />
+				))}
+			</div>
 		</div>
 	)
 }
