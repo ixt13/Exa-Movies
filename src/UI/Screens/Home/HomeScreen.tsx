@@ -23,7 +23,7 @@ export default function HomeScreen({
 				<div
 					style={{ borderTop: '1px solid currentColor  ', width: '100%' }}
 				></div>
-				{mainPageMovies?.map((el, index) => (
+				{mainPageMovies?.map(el => (
 					<MovieItemInfo movieInfo={el} key={el.id} />
 				))}
 			</div>

@@ -23,7 +23,7 @@ export default async function Home() {
 			year: [currentYear],
 			'rating.imdb': ['5.5-10'],
 			'rating.kp': ['5.5-10'],
-			limit: '45',
+			limit: '39',
 		},
 	})
 

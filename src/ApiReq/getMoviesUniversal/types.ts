@@ -5,10 +5,7 @@ interface rating {
 	imdb: number
 	kp: number
 }
-interface votes {
-	imdb: number
-	kp: number
-}
+
 interface backdrop {
 	previewUrl: string
 	url: string

@@ -45,6 +45,10 @@ export const Carousel = ({ carouselMovies }: iCarousel) => {
 						src={el.backdrop?.url ? el.backdrop?.url : mockImage}
 						alt={el.name}
 						fill
+						sizes='100%'
+						placeholder={'empty'} // "empty" | "blur" | "data:image/..."
+						priority={true}
+						loading={'eager'}
 					></Image>
 				</SwiperSlide>
 			))}
