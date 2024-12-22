@@ -6,7 +6,7 @@ interface rating {
 	kp: number
 }
 
-interface backdrop {
+interface poster {
 	previewUrl: string
 	url: string
 }
@@ -30,6 +30,6 @@ export interface iTodo {
 	rating: rating
 	year: number
 	ageRating: number
-	backdrop?: backdrop
+	poster?: poster
 	countries: countries[]
 }

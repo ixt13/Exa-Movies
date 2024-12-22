@@ -24,7 +24,7 @@ export const Carousel = ({ carouselMovies }: iCarousel) => {
 			className={styles.swiper}
 			effect={'coverflow'}
 			centeredSlides={true}
-			slidesPerView={3}
+			slidesPerView={5}
 			loopAdditionalSlides={5}
 			initialSlide={0}
 			coverflowEffect={{
@@ -42,7 +42,7 @@ export const Carousel = ({ carouselMovies }: iCarousel) => {
 			{carouselMovies.map(el => (
 				<SwiperSlide key={el.id} className={styles.slide}>
 					<Image
-						src={el.backdrop?.url ? el.backdrop?.url : mockImage}
+						src={el.poster?.url ? el.poster?.url : mockImage}
 						alt={el.name}
 						fill
 						sizes='100%'
