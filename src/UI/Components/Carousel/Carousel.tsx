@@ -45,10 +45,12 @@ export const Carousel = ({ carouselMovies }: iCarousel) => {
 						src={el.poster?.previewUrl ? el.poster?.previewUrl : mockImage}
 						alt={el.name}
 						fill
+						priority
 						sizes='100%'
 						placeholder={'empty'} // "empty" | "blur" | "data:image/..."
-						priority={true}
-						loading={'eager'}
+						onError={() => {
+							console.log('Image failed to load')
+						}}
 					></Image>
 				</SwiperSlide>
 			))}
