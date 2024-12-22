@@ -1,22 +1,29 @@
-import { iTodo } from '@/app/types'
-
+import { iTodo } from '@/ApiReq/getMoviesUniversal/types'
+import { Carousel } from '@/UI/Components/Carousel/Carousel'
 import { MovieItemInfo } from '@/UI/Components/MovieItemInfo/MovieItemInfo'
 import styles from './HomeScreen.module.scss'
 
 interface iHomeScreenProps {
-	movies: iTodo[] | []
+	mainPageMovies: iTodo[] | []
+	carouselMovies: iTodo[] | []
 }
 
-export default function HomeScreen({ movies }: iHomeScreenProps) {
+export default function HomeScreen({
+	mainPageMovies,
+	carouselMovies,
+}: iHomeScreenProps) {
 	return (
-		<div>
-			<div className={styles.carousel}></div>
-			<div className={styles.homeWrapper}>
+		<div className={styles.homeWrapper}>
+			<div className={styles.test}>
+				<Carousel carouselMovies={carouselMovies}></Carousel>
+			</div>
+
+			<div className={styles.homeContentContainer}>
 				<h1>250 лучших фильмов</h1>
 				<div
 					style={{ borderTop: '1px solid currentColor  ', width: '100%' }}
 				></div>
-				{movies?.map((el, index) => (
+				{mainPageMovies?.map((el, index) => (
 					<MovieItemInfo movieInfo={el} key={el.id} />
 				))}
 			</div>

@@ -1,4 +1,11 @@
 .homeWrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.homeContentContainer {
 	background-color: #444140;
 	min-height: 100vh;
 	width: 1000px;
@@ -13,7 +20,4 @@
 		text-align: center;
 		padding-bottom: 24px;
 	}
-}
-.carousel {
-	height: 280px;
 }

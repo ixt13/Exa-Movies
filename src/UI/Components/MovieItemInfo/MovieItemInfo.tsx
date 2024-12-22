@@ -1,4 +1,4 @@
-import { iTodo } from '@/app/types'
+import { iTodo } from '@/ApiReq/getMoviesUniversal/types'
 import mockImage from '@/assets/orig.jpg'
 import Image from 'next/image'
 import { FC } from 'react'
@@ -12,7 +12,6 @@ interface iMovieInfo {
 export const MovieItemInfo: FC<iMovieInfo> = ({ movieInfo }) => {
 	const minutesConverter = (mins: number): string =>
 		`${Math.floor(mins / 60)} ч ${mins % 60} мин`
-	console.log(movieInfo.movieLength)
 
 	return (
 		<div className={styles.movieItemInfo}>
