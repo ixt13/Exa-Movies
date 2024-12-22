@@ -19,7 +19,7 @@ export const MovieItemInfo: FC<iMovieInfo> = ({ movieInfo }) => {
 				<div className={styles.movieItemInfoContentLeft}>
 					<div className={styles.image}>
 						<Image
-							src={movieInfo.poster?.url || mockImage}
+							src={movieInfo.poster?.previewUrl || mockImage}
 							alt={movieInfo.id.toString()}
 							fill
 							style={{ objectFit: 'cover' }}

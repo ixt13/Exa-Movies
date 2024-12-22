@@ -42,7 +42,7 @@ export const Carousel = ({ carouselMovies }: iCarousel) => {
 			{carouselMovies.map(el => (
 				<SwiperSlide key={el.id} className={styles.slide}>
 					<Image
-						src={el.poster?.url ? el.poster?.url : mockImage}
+						src={el.poster?.previewUrl ? el.poster?.previewUrl : mockImage}
 						alt={el.name}
 						fill
 						sizes='100%'
