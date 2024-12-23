@@ -2,9 +2,8 @@ import { getMoviesUniversal } from '@/ApiReq/getMoviesUniversal/getMoviesUnivers
 import HomeScreen from '@/UI/Screens/Home/HomeScreen'
 
 import { Suspense } from 'react'
-import { PageProps } from './types'
 
-export default async function Home({ params }: PageProps) {
+export default async function Home({ params }: any) {
 	const { page } = await params
 
 	const currentYear = new Date().getFullYear().toString()
