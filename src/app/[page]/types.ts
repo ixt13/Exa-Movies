@@ -1,5 +1,3 @@
-// export interface PageProps {
-// 	params: {
-// 		page: number
-// 	}
-// }
+export interface PageProps {
+	page: number
+}
