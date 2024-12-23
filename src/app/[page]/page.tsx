@@ -5,7 +5,7 @@ import { Suspense } from 'react'
 import { props } from './types'
 
 export default async function Home({ params }: props) {
-	const { page } = await params
+	const { page } = params
 
 	const currentYear = new Date().getFullYear().toString()
 
