@@ -1,8 +1,9 @@
 'use client'
 import { Pagination } from '@mui/material'
 import { useRouter } from 'next/navigation'
+import { iPagination } from './types'
 
-export const PaginationProvider = ({ pages, page, total }: iPagination) => {
+export const PaginationProvider = ({ pages, page }: iPagination) => {
 	const router = useRouter()
 
 	return (
