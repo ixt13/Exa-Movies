@@ -16,7 +16,10 @@ interface countries {
 }
 
 export interface KinopoiskResponse {
-	docs: iTodo[]
+	docs?: iTodo[]
+	page?: number
+	pages?: number
+	total?: number
 }
 
 export interface iHomeScreenProps {

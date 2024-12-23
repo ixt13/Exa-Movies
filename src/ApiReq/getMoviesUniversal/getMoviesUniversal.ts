@@ -1,4 +1,4 @@
-import { iTodo, KinopoiskResponse } from './types'
+import { KinopoiskResponse } from './types'
 
 interface iParams {
 	lists?: string[]
@@ -8,13 +8,14 @@ interface iParams {
 	'rating.kp'?: string[]
 	'rating.imdb'?: string[]
 	limit?: string
+	page?: string
 }
 interface iqueryParamsProps {
 	queryParamsProps: iParams
 }
 export async function getMoviesUniversal({
 	queryParamsProps,
-}: iqueryParamsProps): Promise<iTodo[] | []> {
+}: iqueryParamsProps): Promise<KinopoiskResponse> {
 	const { SECRET_TOKEN } = process.env
 	const baseUrl = 'https://api.kinopoisk.dev/v1.4/movie'
 
@@ -35,16 +36,16 @@ export async function getMoviesUniversal({
 			cache: 'default',
 			next: { revalidate: 180 },
 		})
-		console.log(response)
+
 		if (response.ok) {
 			const data: KinopoiskResponse = await response.json()
 			console.log(data)
-			return data.docs
+			return data
 		} else {
-			return []
+			return {}
 		}
 	} catch (error) {
 		console.log(error)
-		return []
+		return {}
 	}
 }

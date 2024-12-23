@@ -1,6 +1,6 @@
 'use client'
 
-import { iTodo } from '@/ApiReq/getMoviesUniversal/types'
+import { KinopoiskResponse } from '@/ApiReq/getMoviesUniversal/types'
 import mockImage from '@/assets/orig.jpg'
 import Image from 'next/image'
 import 'swiper/css'
@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from './Carousel.module.scss'
 import './SwiperStyles.css'
 interface iCarousel {
-	carouselMovies: iTodo[] | []
+	carouselMovies: KinopoiskResponse
 }
 
 export const Carousel = ({ carouselMovies }: iCarousel) => {
@@ -39,21 +39,23 @@ export const Carousel = ({ carouselMovies }: iCarousel) => {
 				el: `.${styles.customPagination}`,
 			}}
 		>
-			{carouselMovies.map(el => (
-				<SwiperSlide key={el.id} className={styles.slide}>
-					<Image
-						src={el.poster?.previewUrl ? el.poster?.previewUrl : mockImage}
-						alt={el.name}
-						fill
-						priority
-						sizes='100%'
-						placeholder={'empty'} // "empty" | "blur" | "data:image/..."
-						onError={() => {
-							console.log('Image failed to load')
-						}}
-					></Image>
-				</SwiperSlide>
-			))}
+			{carouselMovies.docs
+				? carouselMovies.docs.map(el => (
+						<SwiperSlide key={el.id} className={styles.slide}>
+							<Image
+								src={el.poster?.previewUrl ? el.poster?.previewUrl : mockImage}
+								alt={el.name}
+								fill
+								priority
+								sizes='100%'
+								placeholder={'empty'}
+								onError={() => {
+									console.log('Image failed to load')
+								}}
+							></Image>
+						</SwiperSlide>
+				  ))
+				: ''}
 
 			<div className={styles.customPagination} />
 		</Swiper>
