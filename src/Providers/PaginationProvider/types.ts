@@ -1,5 +1,4 @@
 export interface iPagination {
-	page?: number
-	pages?: number
-	total?: number
+	page: number
+	pages: number
 }

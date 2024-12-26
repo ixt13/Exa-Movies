@@ -30,8 +30,8 @@ export default function HomeScreen({
 					  ))
 					: ''}
 				<PaginationProvider
-					page={mainPageMovies.page}
-					pages={mainPageMovies.pages}
+					page={mainPageMovies.page || 1}
+					pages={mainPageMovies.pages || 1}
 				/>
 			</div>
 		</div>

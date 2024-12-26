@@ -30,7 +30,7 @@ export default async function Home({ params }: { params: Promise<PageProps> }) {
 			limit: '39',
 		},
 	})
-
+	console.log('render')
 	return (
 		<Suspense
 			fallback={
