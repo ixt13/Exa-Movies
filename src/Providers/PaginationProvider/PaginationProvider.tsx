@@ -6,7 +6,7 @@ import { iPagination } from './types'
 
 import styles from './Pagination.module.scss'
 
-export const PaginationProvider = ({ pages, page, size }: iPagination) => {
+export const PaginationProvider = ({ pages, page }: iPagination) => {
 	const [isClicked, setIsClicked] = useState<boolean>(false)
 
 	const router = useRouter()
@@ -86,7 +86,7 @@ export const PaginationProvider = ({ pages, page, size }: iPagination) => {
 					className={`${styles.button}   ${
 						page === pages && styles.buttonDisabled
 					}`}
-					onClick={e => {
+					onClick={() => {
 						if (isClicked) return
 						setIsClicked(true)
 						handlePageClick(page + 1)

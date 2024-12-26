@@ -32,7 +32,6 @@ export default function HomeScreen({
 				<PaginationProvider
 					page={mainPageMovies.page || 1}
 					pages={mainPageMovies.pages || 1}
-					size={20}
 				/>
 			</div>
 		</div>
