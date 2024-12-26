@@ -60,6 +60,7 @@ export const PaginationProvider = ({ pages, page }: iPagination) => {
 						setIsClicked(true)
 						handlePageClick(page - 1)
 					}}
+					aria-label='Previous Page'
 				>{`<`}</button>
 			</li>
 			{getPagination.map((item, index) => (
@@ -91,6 +92,7 @@ export const PaginationProvider = ({ pages, page }: iPagination) => {
 						setIsClicked(true)
 						handlePageClick(page + 1)
 					}}
+					aria-label='Next Page'
 				>{`>`}</button>
 			</li>
 		</ul>
