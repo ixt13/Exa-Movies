@@ -36,12 +36,13 @@ export async function getMoviesUniversal({
 			cache: 'default',
 			next: { revalidate: 180 },
 		})
-		console.log(response)
+
 		if (response.ok) {
 			const data: KinopoiskResponse = await response.json()
-			console.log(data)
+
 			return data
 		} else {
+			console.log(response)
 			return {}
 		}
 	} catch (error) {
