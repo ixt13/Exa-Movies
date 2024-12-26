@@ -1,0 +1,28 @@
+.button {
+	font-weight: 600;
+	height: 30px;
+	width: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	background-color: transparent;
+	outline: none;
+	border: none;
+	color: currentColor;
+	cursor: pointer;
+	font-size: 14px;
+	border-radius: 50%;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.buttonCurrent {
+	background-color: #ff804e7d;
+}
+
+.buttonDisabled {
+	visibility: hidden;
+}

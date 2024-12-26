@@ -1,10 +1,14 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
-import { useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { iPagination } from './types'
 
-export const PaginationProvider = ({ pages, page }: iPagination) => {
+import styles from './Pagination.module.scss'
+
+export const PaginationProvider = ({ pages, page, size }: iPagination) => {
+	const [isClicked, setIsClicked] = useState<boolean>(false)
+
 	const router = useRouter()
 
 	const getPagination = useMemo(() => {
@@ -16,8 +20,8 @@ export const PaginationProvider = ({ pages, page }: iPagination) => {
 
 		if (page >= 4) result.push('...')
 
-		const start = Math.max(2, page - 1)
-		const end = Math.min(pages - 1, page < 4 ? 5 : page + 1)
+		const start = Math.max(2, page - 2)
+		const end = Math.min(pages - 1, page < 4 ? 5 : page + 2)
 
 		for (let i = start; i <= end; i++) {
 			result.push(i)
@@ -31,42 +35,64 @@ export const PaginationProvider = ({ pages, page }: iPagination) => {
 	}, [pages, page])
 
 	const handlePageClick = (pageNumber: number | string) => {
+		if (isClicked) return
+		setIsClicked(true)
 		router.push(`${pageNumber}`)
 	}
 
 	return (
-		<div>
-			<ul
-				style={{
-					listStyle: 'none',
-					padding: 0,
-					display: 'flex',
-					justifyContent: 'center',
-				}}
-			>
-				{getPagination.map((item, index) => (
-					<li key={index} style={{ display: 'inline-block', margin: '0 5px' }}>
-						{item === '...' ? (
-							<span>...</span>
-						) : (
-							<button
-								onClick={e => {
-									e.preventDefault()
-									handlePageClick(item)
-								}}
-								style={{
-									padding: '5px 10px',
-									background: item === page ? 'lightblue' : 'white',
-									border: '1px solid gray',
-									cursor: 'pointer',
-								}}
-							>
-								{item}
-							</button>
-						)}
-					</li>
-				))}
-			</ul>
-		</div>
+		<ul
+			style={{
+				listStyle: 'none',
+				paddingTop: '24px',
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center',
+			}}
+		>
+			<li>
+				<button
+					className={`${styles.button}    ${
+						page === 1 && styles.buttonDisabled
+					}`}
+					onClick={() => {
+						if (isClicked) return
+						setIsClicked(true)
+						handlePageClick(page - 1)
+					}}
+				>{`<`}</button>
+			</li>
+			{getPagination.map((item, index) => (
+				<li key={index} style={{ display: 'inline-block', margin: '0px 8px' }}>
+					{item === '...' ? (
+						<span className={styles.dots}>...</span>
+					) : (
+						<button
+							className={`${styles.button}  ${
+								item === page && styles.buttonCurrent
+							}  `}
+							onClick={e => {
+								e.preventDefault()
+								handlePageClick(item)
+							}}
+						>
+							{item}
+						</button>
+					)}
+				</li>
+			))}
+			<li>
+				<button
+					className={`${styles.button}   ${
+						page === pages && styles.buttonDisabled
+					}`}
+					onClick={e => {
+						if (isClicked) return
+						setIsClicked(true)
+						handlePageClick(page + 1)
+					}}
+				>{`>`}</button>
+			</li>
+		</ul>
 	)
 }
