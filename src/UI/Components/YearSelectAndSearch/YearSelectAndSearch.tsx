@@ -28,7 +28,7 @@ export const YearSelectAndSearch = () => {
 					}`}
 				>
 					<p>{year}</p>
-					<ArrowIcon style={{ width: '20px', height: '20px' }} />
+					<ArrowIcon className={styles.arrowIcon} />
 				</div>
 				<div
 					className={`${styles.selectYearPopup} ${
