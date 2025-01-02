@@ -20,9 +20,10 @@ export const CustomCarousel = ({
 	const containerRef = useRef<HTMLDivElement | null>(null)
 	const [itemsContainer] = useState<iTodo[]>(carouselMovies.docs || [])
 	const dotsLength = Math.max(
-		Math.ceil((carouselMovies.docs?.length! - 8) / 3 + 1),
+		Math.ceil(((carouselMovies.docs?.length ?? 0) - 8) / 3 + 1),
 		1
 	)
+
 	const [scrollRange, setScrollRange] = useState<number>(0)
 
 	const handleScroll = (direction?: 'right' | 'left', coords?: number) => {
