@@ -8,7 +8,7 @@
 }
 
 .container {
-	max-width: 1076px;
+	max-width: 1108px;
 	position: relative;
 
 	display: flex;
@@ -26,8 +26,12 @@
 	min-height: 180px;
 	max-height: 180px;
 
-	transition: transform 0.3s ease, opacity 0.3s ease;
 	cursor: pointer;
+
+	&:hover {
+		outline: 2px solid #f7ebe8a6;
+	}
+	margin: 2px;
 }
 
 .button {

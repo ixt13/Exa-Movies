@@ -16,7 +16,7 @@ export default function HomeScreen({
 	return (
 		<div className={styles.homeWrapper}>
 			{/* <Carousel carouselMovies={carouselMovies}></Carousel> */}
-			<CustomCarousel carouselMovies={carouselMovies} scrollAmount={136 * 3} />
+			<CustomCarousel carouselMovies={carouselMovies} scrollAmount={140 * 3} />
 
 			<div className={styles.homeContentContainer}>
 				<h1>250 лучших фильмов</h1>
