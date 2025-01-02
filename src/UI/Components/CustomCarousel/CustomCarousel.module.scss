@@ -1,0 +1,95 @@
+.wrapper {
+	transition: all 0.3s ease;
+	margin: 24px 0px 12px 0px;
+	position: relative;
+	display: flex;
+	flex-direction: row;
+	gap: 14px;
+}
+
+.container {
+	max-width: 1076px;
+	position: relative;
+
+	display: flex;
+	flex-direction: row;
+	overflow-x: hidden;
+	gap: 12px;
+	scroll-behavior: smooth;
+	transition: all 0.3s ease;
+	overflow: hidden;
+}
+.carouselItem {
+	position: relative;
+	min-width: 124px;
+	max-width: 124px;
+	min-height: 180px;
+	max-height: 180px;
+
+	transition: transform 0.3s ease, opacity 0.3s ease;
+	cursor: pointer;
+}
+
+.button {
+	all: unset;
+	transition: all 0.1s ease;
+	min-height: 64%;
+	min-width: 24px;
+	border-radius: 4px;
+	cursor: pointer;
+	text-align: center;
+	border: 2px solid #f7ebe839;
+	color: #f7ebe839;
+	&:hover {
+		background-color: #f7ebe839;
+		border: 2px solid #f7ebe839;
+	}
+	&:active {
+		border-color: #f7ebe8a6;
+		color: #f7ebe8a6;
+	}
+}
+.arrowIcon {
+	height: 100%;
+}
+.container {
+	display: flex;
+	overflow-x: hidden;
+	width: 100%;
+}
+.containerAndButtons {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 14px;
+}
+.containerAndDots {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+
+.navDots {
+	width: 100%;
+	height: 24px;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	gap: 24px;
+}
+.dotIcon {
+	height: 14px;
+	width: 14px;
+	fill: #f7ebe839;
+	cursor: pointer;
+}
+.dotIconSelected {
+	transition: all 0.3s ease;
+	fill: #f7ebe8a6;
+}
+
+.translateDegree {
+	transform: rotate(180deg);
+}

@@ -1,6 +1,6 @@
 import { KinopoiskResponse } from '@/ApiReq/getMoviesUniversal/types'
 import { PaginationProvider } from '@/Providers/PaginationProvider/PaginationProvider'
-import { Carousel } from '@/UI/Components/Carousel/Carousel'
+import { CustomCarousel } from '@/UI/Components/CustomCarousel/CustomCarousel'
 import { MovieItemInfo } from '@/UI/Components/MovieItemInfo/MovieItemInfo'
 import styles from './HomeScreen.module.scss'
 
@@ -15,9 +15,8 @@ export default function HomeScreen({
 }: iHomeScreenProps) {
 	return (
 		<div className={styles.homeWrapper}>
-			<div className={styles.test}>
-				<Carousel carouselMovies={carouselMovies}></Carousel>
-			</div>
+			{/* <Carousel carouselMovies={carouselMovies}></Carousel> */}
+			<CustomCarousel carouselMovies={carouselMovies} scrollAmount={136 * 3} />
 
 			<div className={styles.homeContentContainer}>
 				<h1>250 лучших фильмов</h1>

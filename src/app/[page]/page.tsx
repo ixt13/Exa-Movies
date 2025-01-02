@@ -7,7 +7,7 @@ import { PageProps } from './types'
 export default async function Home({ params }: { params: Promise<PageProps> }) {
 	const { page } = await params
 
-	const currentYear = new Date().getFullYear().toString()
+	const currentYear = new Date().getFullYear() - 1
 
 	const mainPageMovies = await getMoviesUniversal({
 		queryParamsProps: { lists: ['top250'], page: page.toString() },
@@ -24,7 +24,7 @@ export default async function Home({ params }: { params: Promise<PageProps> }) {
 				'rating.imdb',
 			],
 			type: 'movie',
-			year: [currentYear],
+			year: [currentYear.toString()],
 			'rating.imdb': ['5.5-10'],
 			'rating.kp': ['5.5-10'],
 			limit: '39',
