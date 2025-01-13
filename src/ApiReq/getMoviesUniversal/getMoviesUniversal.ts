@@ -1,6 +1,6 @@
 import { KinopoiskResponse } from './types'
 
-interface iParams {
+export interface iParams {
 	lists?: string[]
 	notNullFields?: string[]
 	type?: string
@@ -9,15 +9,18 @@ interface iParams {
 	'rating.imdb'?: string[]
 	limit?: string
 	page?: string
+	id?: string[]
 }
-interface iqueryParamsProps {
+export interface iqueryParamsProps {
 	queryParamsProps: iParams
 }
 export async function getMoviesUniversal({
 	queryParamsProps,
 }: iqueryParamsProps): Promise<KinopoiskResponse> {
 	const { SECRET_TOKEN } = process.env
-	const baseUrl = 'https://api.kinopoisk.dev/v1.4/movie'
+	const baseUrl = `https://api.kinopoisk.dev/v1.4/movie${
+		queryParamsProps.id ? '/' + queryParamsProps.id : ''
+	}`
 
 	const url = new URL(baseUrl)
 
