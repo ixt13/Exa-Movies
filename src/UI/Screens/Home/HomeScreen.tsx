@@ -16,6 +16,7 @@ export default function HomeScreen({
 	return (
 		<div className={styles.homeWrapper}>
 			{/* <Carousel carouselMovies={carouselMovies}></Carousel> */}
+			<p style={{ color: 'white' }}>Актуально</p>
 			<CustomCarousel carouselMovies={carouselMovies} scrollAmount={140 * 3} />
 
 			<div className={styles.homeContentContainer}>

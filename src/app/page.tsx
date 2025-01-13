@@ -1,5 +1,5 @@
 import { redirect } from 'next/navigation'
 
 export default function page() {
-	redirect('/1')
+	redirect('/home/1')
 }

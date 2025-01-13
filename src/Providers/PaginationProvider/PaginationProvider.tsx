@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation'
 import { useMemo, useState } from 'react'
 import { iPagination } from './types'
 
+import Link from 'next/link'
 import styles from './Pagination.module.scss'
 
 export const PaginationProvider = ({ pages, page }: iPagination) => {
@@ -51,49 +52,38 @@ export const PaginationProvider = ({ pages, page }: iPagination) => {
 			}}
 		>
 			<li>
-				<button
+				<Link
+					href={`${page - 1}`}
 					className={`${styles.button}    ${
 						page === 1 && styles.buttonDisabled
 					}`}
-					onClick={() => {
-						if (isClicked) return
-						setIsClicked(true)
-						handlePageClick(page - 1)
-					}}
 					aria-label='Previous Page'
-				>{`<`}</button>
+				>{`<`}</Link>
 			</li>
 			{getPagination.map((item, index) => (
 				<li key={index} style={{ display: 'inline-block', margin: '0px 8px' }}>
 					{item === '...' ? (
 						<span className={styles.dots}>...</span>
 					) : (
-						<button
+						<Link
+							href={item.toString()}
 							className={`${styles.button}  ${
 								item === page && styles.buttonCurrent
 							}  `}
-							onClick={e => {
-								e.preventDefault()
-								handlePageClick(item)
-							}}
 						>
 							{item}
-						</button>
+						</Link>
 					)}
 				</li>
 			))}
 			<li>
-				<button
+				<Link
+					href={`${page + 1}`}
 					className={`${styles.button}   ${
 						page === pages && styles.buttonDisabled
 					}`}
-					onClick={() => {
-						if (isClicked) return
-						setIsClicked(true)
-						handlePageClick(page + 1)
-					}}
 					aria-label='Next Page'
-				>{`>`}</button>
+				>{`>`}</Link>
 			</li>
 		</ul>
 	)

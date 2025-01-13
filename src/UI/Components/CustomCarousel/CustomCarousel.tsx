@@ -3,6 +3,7 @@
 import { iTodo, KinopoiskResponse } from '@/ApiReq/getMoviesUniversal/types'
 import mockImage from '@/assets/orig.jpg'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRef, useState } from 'react'
 import { ArrowIcon } from '../Svg/ArrowIcon/ArrowIcon'
 import { DotIcon } from '../Svg/DotIcon/DotIcon'
@@ -56,14 +57,18 @@ export const CustomCarousel = ({
 					</button>
 					<div ref={containerRef} className={styles.container}>
 						{itemsContainer.map(el => (
-							<div key={el.id} className={styles.carouselItem}>
+							<Link
+								href={`/movie/${el.id}`}
+								key={el.id}
+								className={styles.carouselItem}
+							>
 								<Image
 									src={el.poster ? el.poster.url : mockImage}
 									alt={el.name}
 									fill
 									sizes='100%'
 								/>
-							</div>
+							</Link>
 						))}
 					</div>
 					<button

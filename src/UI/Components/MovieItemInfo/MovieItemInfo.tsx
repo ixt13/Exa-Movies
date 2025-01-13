@@ -1,9 +1,13 @@
+'use client'
+
 import { iTodo } from '@/ApiReq/getMoviesUniversal/types'
 import mockImage from '@/assets/orig.jpg'
 import Image from 'next/image'
+import { redirect } from 'next/navigation'
 import { FC } from 'react'
 import { RatingInfo } from '../RatingInfo/RatingInfo'
 import styles from './MovieItemInfo.module.scss'
+import Link from 'next/link'
 
 interface iMovieInfo {
 	movieInfo: iTodo
@@ -14,13 +18,13 @@ export const MovieItemInfo: FC<iMovieInfo> = ({ movieInfo }) => {
 		`${Math.floor(mins / 60)} ч ${mins % 60} мин`
 
 	return (
-		<div className={styles.movieItemInfo}>
+		<Link href={`/movie/${movieInfo.id}`} className={styles.movieItemInfo}>
 			<div className={styles.movieItemInfoContent}>
 				<div className={styles.movieItemInfoContentLeft}>
 					<div className={styles.image}>
 						<Image
 							src={movieInfo.poster?.previewUrl || mockImage}
-							alt={movieInfo.id.toString()}
+							alt={movieInfo.name || 'image poster'}
 							fill
 							style={{ objectFit: 'cover' }}
 							sizes='100%'
@@ -52,6 +56,6 @@ export const MovieItemInfo: FC<iMovieInfo> = ({ movieInfo }) => {
 					position: 'relative',
 				}}
 			></div>
-		</div>
+		</Link>
 	)
 }

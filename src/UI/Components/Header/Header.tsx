@@ -1,4 +1,5 @@
 'use client'
+import Link from 'next/link'
 import { useState } from 'react'
 import { HeaderPopup } from '../HeaderPopup/HeaderPopup'
 import { AnimeIcon } from '../Svg/AnimeIcon/AnimeIcon'
@@ -20,9 +21,9 @@ export const Header = () => {
 	}
 	return (
 		<header className={styles.header}>
-			<div className={styles.title}>
+			<Link href={'/home/1'} className={styles.title}>
 				<h1>Exa Movies</h1>
-			</div>
+			</Link>
 
 			<nav className={styles.navigation}>
 				<ul>

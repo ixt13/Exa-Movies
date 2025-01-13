@@ -1,4 +1,5 @@
 export interface iMovieResponse {
+	poster: { previewUrl: string; url: string }
 	id: number
 	externalId: {
 		imdb: string

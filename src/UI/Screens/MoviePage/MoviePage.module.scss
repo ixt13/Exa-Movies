@@ -1,0 +1,91 @@
+.wrapper {
+	position: relative;
+
+	background-color: #444140;
+	min-height: 100vh;
+	width: 1000px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 24px 40px 24px 40px;
+	margin: 40px 0px 40px 0px;
+
+	h1 {
+		width: 100%;
+		text-align: center;
+		padding-bottom: 24px;
+	}
+}
+
+.topContainer {
+	position: relative;
+	z-index: 2;
+	height: 536px;
+	width: 100%;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: start;
+	gap: 84px;
+	font-size: 18npx;
+}
+.backgroundImage {
+	z-index: 1;
+	opacity: 20%;
+	height: 536px !important;
+}
+
+.leftSide {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	width: 226px;
+}
+.image {
+	position: relative;
+	height: 306px;
+	width: 226px;
+
+	outline: 1px solid white;
+	border-radius: 4px;
+}
+
+.trailerButton {
+	all: unset;
+	width: 100%;
+	outline: 1px solid white;
+	border-radius: 4px;
+	height: 44px;
+	text-align: center;
+	cursor: pointer;
+	&:hover {
+		background-color: #f7ebe839;
+		outline: 2px solid #f7ebe839;
+	}
+	&:active {
+		color: #f7ebe8a6;
+	}
+}
+
+.rightSide {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.botContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 18px;
+}
+
+.movieName {
+	h4 {
+		font-size: 24px;
+	}
+	p {
+		opacity: 70%;
+		font-size: 20px;
+	}
+}

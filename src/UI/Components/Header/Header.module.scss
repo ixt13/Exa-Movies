@@ -2,14 +2,21 @@
 	width: 100%;
 }
 .title {
+	all: unset;
 	height: 36px;
-
+	cursor: pointer;
 	background-color: #1e1e24;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	h1 {
 		font-size: 20px;
+	}
+	&:hover {
+		color: #f7ebe8a8;
+	}
+	&:active {
+		color: #f7ebe839;
 	}
 }
 .navigation {
