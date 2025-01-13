@@ -1,17 +1,12 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import { iPagination } from './types'
 
 import Link from 'next/link'
 import styles from './Pagination.module.scss'
 
 export const PaginationProvider = ({ pages, page }: iPagination) => {
-	const [isClicked, setIsClicked] = useState<boolean>(false)
-
-	const router = useRouter()
-
 	const getPagination = useMemo(() => {
 		if (pages <= 7) return Array.from({ length: pages }, (_, i) => i + 1)
 
