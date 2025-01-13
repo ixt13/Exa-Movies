@@ -52,7 +52,7 @@ export interface iMovieResponse {
 		language: string
 		type: string | null
 	}[]
-	networks: any | null
+
 	persons: {
 		id: number
 		photo: string
