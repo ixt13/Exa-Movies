@@ -8,6 +8,7 @@ interface iMoviePageProps {
 }
 
 export default function MoviePage({ movie }: iMoviePageProps) {
+	console.log(movie)
 	return (
 		<div className={styles.wrapper}>
 			<Image
@@ -32,8 +33,21 @@ export default function MoviePage({ movie }: iMoviePageProps) {
 							style={{ borderRadius: '4px' }}
 						/>
 					</div>
-
-					<button className={styles.trailerButton}>{`Watch trailer`}</button>
+					<div>
+						{movie && movie.videos && movie.videos.trailers[0].url ? (
+							<a
+								className={styles.trailerButton}
+								href={`${
+									movie && movie.videos ? movie.videos.trailers[0].url : ''
+								}`}
+								target='_blank'
+							>
+								Смотреть трейлер
+							</a>
+						) : (
+							<div className={styles.epmtyTrailer}>Трейлера нет</div>
+						)}
+					</div>
 				</div>
 				<div className={styles.rightSide}>
 					<div>
