@@ -1,3 +1,21 @@
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes fadeInSecond {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 20%;
+	}
+}
+
 .wrapper {
 	position: relative;
 
@@ -106,4 +124,11 @@
 		opacity: 70%;
 		font-size: 20px;
 	}
+}
+.entranceAnimation {
+	animation: fadeIn 2s ease-out;
+}
+
+.entranceAnimationSecond {
+	animation: fadeInSecond 2s ease;
 }

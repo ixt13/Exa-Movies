@@ -1,8 +1,18 @@
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
 .movieItemInfo {
 	all: unset;
 	height: 120px;
 	width: 100%;
 	cursor: pointer;
+	animation: fadeIn 0.5s ease-out forwards;
 	&:hover {
 		background-color: #5b5756;
 
@@ -56,4 +66,9 @@
 .secondDescription {
 	font-size: 12px;
 	width: 280px;
+}
+
+.entranceAnimation {
+	z-index: 2;
+	animation: fadeIn 0.5s ease-out forwards;
 }

@@ -5,8 +5,9 @@ import mockImage from '@/assets/orig.jpg'
 import Image from 'next/image'
 
 import Link from 'next/link'
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import { RatingInfo } from '../RatingInfo/RatingInfo'
+import { SkeletonBackground } from '../SkeletonBackground/SkeletonBackground'
 import styles from './MovieItemInfo.module.scss'
 
 interface iMovieInfo {
@@ -17,18 +18,23 @@ export const MovieItemInfo: FC<iMovieInfo> = ({ movieInfo }) => {
 	const minutesConverter = (mins: number): string =>
 		`${Math.floor(mins / 60)} ч ${mins % 60} мин`
 
+	const [isLoading, setIsLoading] = useState<boolean>(true)
 	return (
 		<Link href={`/movie/${movieInfo.id}`} className={styles.movieItemInfo}>
 			<div className={styles.movieItemInfoContent}>
 				<div className={styles.movieItemInfoContentLeft}>
 					<div className={styles.image}>
 						<Image
+							className={styles.entranceAnimation}
 							src={movieInfo.poster?.previewUrl || mockImage}
 							alt={movieInfo.name || 'image poster'}
 							fill
-							style={{ objectFit: 'cover' }}
 							sizes='100%'
+							onLoadingComplete={() => {
+								setIsLoading(false)
+							}}
 						/>
+						{isLoading && <SkeletonBackground />}
 					</div>
 
 					<div className={styles.movieItemInfoContentTextContainer}>

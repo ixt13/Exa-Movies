@@ -1,23 +1,30 @@
-import { iMovieResponse } from '@/ApiReq/getMovieById/types'
-import mockImage from '@/assets/orig.jpg'
-import Image from 'next/image'
-import styles from './MoviePage.module.scss'
+'use client'
 
+import { iMovieResponse } from '@/ApiReq/getMovieById/types'
+
+import { SkeletonBackground } from '@/UI/Components/SkeletonBackground/SkeletonBackground'
+import Image from 'next/image'
+import { useState } from 'react'
+import styles from './MoviePage.module.scss'
 interface iMoviePageProps {
 	movie: iMovieResponse | undefined
 }
 
 export default function MoviePage({ movie }: iMoviePageProps) {
-	console.log(movie)
+	const [isLoadingCount, setIsLoadingCount] = useState<number>(0)
 	return (
 		<div className={styles.wrapper}>
-			<Image
-				className={styles.backgroundImage}
-				src={movie ? movie?.backdrop.url : mockImage}
-				alt={movie ? movie.name : 'image poster'}
-				fill
-				sizes='100%'
-			></Image>
+			{movie && movie.backdrop?.url && (
+				<Image
+					className={`${styles.backgroundImage} ${styles.entranceAnimationSecond}`}
+					src={movie.backdrop.url}
+					alt={movie?.name || 'image poster'}
+					fill
+					sizes='100%'
+					onLoad={() => setIsLoadingCount(prevState => (prevState += 1))}
+				/>
+			)}
+			{isLoadingCount < 2 && <SkeletonBackground height={536} opacity={20} />}
 			<div className={styles.topContainer}>
 				<div className={styles.leftSide}>
 					<div className={styles.movieName}>
@@ -25,22 +32,28 @@ export default function MoviePage({ movie }: iMoviePageProps) {
 						<p>{movie ? movie.enName : ''}</p>
 					</div>
 					<div className={styles.image}>
-						<Image
-							src={movie ? movie.poster.url : mockImage}
-							alt={movie ? movie.name : 'image poster'}
-							fill
-							sizes='100%'
-							style={{ borderRadius: '4px' }}
-						/>
+						{movie && movie.poster.url && (
+							<Image
+								className={styles.entranceAnimation}
+								src={movie.poster.url}
+								alt={movie ? movie.name : 'image poster'}
+								fill
+								sizes='100%'
+								style={{ borderRadius: '4px' }}
+								onLoadingComplete={() =>
+									setIsLoadingCount(prevState => (prevState += 1))
+								}
+							/>
+						)}
+						{isLoadingCount < 2 && <SkeletonBackground opacity={20} />}
 					</div>
 					<div>
-						{movie && movie.videos && movie.videos.trailers[0].url ? (
+						{movie?.videos?.trailers?.[0]?.url ? (
 							<a
 								className={styles.trailerButton}
-								href={`${
-									movie && movie.videos ? movie.videos.trailers[0].url : ''
-								}`}
+								href={movie.videos.trailers[0].url}
 								target='_blank'
+								rel='noopener noreferrer'
 							>
 								Смотреть трейлер
 							</a>
