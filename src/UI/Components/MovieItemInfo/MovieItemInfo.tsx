@@ -3,11 +3,11 @@
 import { iTodo } from '@/ApiReq/getMoviesUniversal/types'
 import mockImage from '@/assets/orig.jpg'
 import Image from 'next/image'
-import { redirect } from 'next/navigation'
+
+import Link from 'next/link'
 import { FC } from 'react'
 import { RatingInfo } from '../RatingInfo/RatingInfo'
 import styles from './MovieItemInfo.module.scss'
-import Link from 'next/link'
 
 interface iMovieInfo {
 	movieInfo: iTodo

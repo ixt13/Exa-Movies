@@ -35,12 +35,6 @@ export const PaginationProvider = ({ pages, page }: iPagination) => {
 		return result
 	}, [pages, page])
 
-	const handlePageClick = (pageNumber: number | string) => {
-		if (isClicked) return
-		setIsClicked(true)
-		router.push(`${pageNumber}`)
-	}
-
 	return (
 		<ul
 			style={{
