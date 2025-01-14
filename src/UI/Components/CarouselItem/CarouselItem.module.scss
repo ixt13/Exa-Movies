@@ -1,0 +1,26 @@
+@keyframes fadeIn {
+	from {
+		opacity: 0.3;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.entranceAnimation {
+	animation: fadeIn 0.5s ease-out forwards;
+}
+.carouselItem {
+	position: relative;
+	min-width: 124px;
+	max-width: 124px;
+	min-height: 180px;
+	max-height: 180px;
+
+	cursor: pointer;
+
+	&:hover {
+		outline: 2px solid #f7ebe8a6;
+	}
+	margin: 2px;
+}

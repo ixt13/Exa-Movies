@@ -1,5 +1,6 @@
 import { getMovieById } from '@/ApiReq/getMovieById/getMovieById'
 import MoviePage from '@/UI/Screens/MoviePage/MoviePage'
+import { Suspense } from 'react'
 interface iMoviePage {
 	movieId: number
 }
@@ -10,5 +11,9 @@ export default async function page({
 }) {
 	const { movieId } = await params
 	const movie = await getMovieById(movieId)
-	return <MoviePage movie={movie} />
+	return (
+		<Suspense fallback>
+			<MoviePage movie={movie} />
+		</Suspense>
+	)
 }

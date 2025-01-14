@@ -6,16 +6,14 @@
 		opacity: 1;
 	}
 }
-
 @keyframes fadeInSecond {
 	from {
 		opacity: 0;
 	}
 	to {
-		opacity: 20%;
+		opacity: 0.2;
 	}
 }
-
 .wrapper {
 	position: relative;
 
@@ -126,9 +124,11 @@
 	}
 }
 .entranceAnimation {
+	z-index: 2;
 	animation: fadeIn 2s ease-out;
 }
 
 .entranceAnimationSecond {
+	z-index: 2;
 	animation: fadeInSecond 2s ease;
 }

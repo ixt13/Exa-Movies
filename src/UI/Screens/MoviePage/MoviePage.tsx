@@ -2,16 +2,13 @@
 
 import { iMovieResponse } from '@/ApiReq/getMovieById/types'
 
-import { SkeletonBackground } from '@/UI/Components/SkeletonBackground/SkeletonBackground'
 import Image from 'next/image'
-import { useState } from 'react'
 import styles from './MoviePage.module.scss'
 interface iMoviePageProps {
 	movie: iMovieResponse | undefined
 }
 
 export default function MoviePage({ movie }: iMoviePageProps) {
-	const [isLoadingCount, setIsLoadingCount] = useState<number>(0)
 	return (
 		<div className={styles.wrapper}>
 			{movie && movie.backdrop?.url && (
@@ -21,10 +18,9 @@ export default function MoviePage({ movie }: iMoviePageProps) {
 					alt={movie?.name || 'image poster'}
 					fill
 					sizes='100%'
-					onLoad={() => setIsLoadingCount(prevState => (prevState += 1))}
 				/>
 			)}
-			{isLoadingCount < 2 && <SkeletonBackground height={536} opacity={20} />}
+
 			<div className={styles.topContainer}>
 				<div className={styles.leftSide}>
 					<div className={styles.movieName}>
@@ -40,12 +36,8 @@ export default function MoviePage({ movie }: iMoviePageProps) {
 								fill
 								sizes='100%'
 								style={{ borderRadius: '4px' }}
-								onLoadingComplete={() =>
-									setIsLoadingCount(prevState => (prevState += 1))
-								}
 							/>
 						)}
-						{isLoadingCount < 2 && <SkeletonBackground opacity={20} />}
 					</div>
 					<div>
 						{movie?.videos?.trailers?.[0]?.url ? (

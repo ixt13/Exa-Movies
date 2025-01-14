@@ -18,7 +18,6 @@ export const MovieItemInfo: FC<iMovieInfo> = ({ movieInfo }) => {
 	const minutesConverter = (mins: number): string =>
 		`${Math.floor(mins / 60)} ч ${mins % 60} мин`
 
-	const [isLoading, setIsLoading] = useState<boolean>(true)
 	return (
 		<Link href={`/movie/${movieInfo.id}`} className={styles.movieItemInfo}>
 			<div className={styles.movieItemInfoContent}>
@@ -30,11 +29,7 @@ export const MovieItemInfo: FC<iMovieInfo> = ({ movieInfo }) => {
 							alt={movieInfo.name || 'image poster'}
 							fill
 							sizes='100%'
-							onLoadingComplete={() => {
-								setIsLoading(false)
-							}}
 						/>
-						{isLoading && <SkeletonBackground />}
 					</div>
 
 					<div className={styles.movieItemInfoContentTextContainer}>

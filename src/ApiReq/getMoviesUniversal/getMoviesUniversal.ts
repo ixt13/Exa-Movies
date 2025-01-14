@@ -45,7 +45,6 @@ export async function getMoviesUniversal({
 
 			return data
 		} else {
-			console.log(response)
 			return {}
 		}
 	} catch (error) {

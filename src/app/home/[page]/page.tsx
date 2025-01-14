@@ -7,12 +7,12 @@ import { PageProps } from './types'
 export default async function Home({ params }: { params: Promise<PageProps> }) {
 	const { page } = await params
 
-	const currentYear = new Date().getFullYear() - 1
+	const currentYear = new Date().getFullYear()
 
 	const mainPageMovies = await getMoviesUniversal({
 		queryParamsProps: { lists: ['top250'], page: page.toString() },
 	})
-	console.log(mainPageMovies)
+
 	const carouselMovies = await getMoviesUniversal({
 		queryParamsProps: {
 			notNullFields: [
@@ -24,13 +24,13 @@ export default async function Home({ params }: { params: Promise<PageProps> }) {
 				'rating.imdb',
 			],
 			type: 'movie',
-			year: [currentYear.toString()],
+			year: [currentYear.toString(), (currentYear - 1).toString()],
 			'rating.imdb': ['5.5-10'],
 			'rating.kp': ['5.5-10'],
 			limit: '39',
 		},
 	})
-	console.log('render')
+
 	return (
 		<Suspense
 			fallback={
