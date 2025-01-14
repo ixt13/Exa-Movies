@@ -1,12 +1,12 @@
-interface iBearStore {
-	count: {
-		genre: string
-		movieType: number
-		year: number
-	}
-	increaseCount: () => void
-	resetCount: () => void
-}
+// interface iBearStore {
+// 	count: {
+// 		genre: string
+// 		movieType: number
+// 		year: number
+// 	}
+// 	increaseCount: () => void
+// 	resetCount: () => void
+// }
 
 // const countStore = create<iBearStore>(set => ({
 // 	count: {

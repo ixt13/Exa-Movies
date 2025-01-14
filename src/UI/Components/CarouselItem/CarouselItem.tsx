@@ -2,7 +2,6 @@
 import { iTodo } from '@/ApiReq/getMoviesUniversal/types'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
 
 import styles from './CarouselItem.module.scss'
 
@@ -11,7 +10,6 @@ interface iCarouselItemdata {
 }
 
 export const CarouselItem = ({ data }: iCarouselItemdata) => {
-	const [isLoading, setIsLoading] = useState<boolean>(true)
 	return (
 		<Link
 			href={`/movie/${data.id}`}
@@ -29,9 +27,6 @@ export const CarouselItem = ({ data }: iCarouselItemdata) => {
 				fill
 				quality={40}
 				sizes='100%'
-				onLoad={() => {
-					setIsLoading(false)
-				}}
 			/>
 		</Link>
 	)

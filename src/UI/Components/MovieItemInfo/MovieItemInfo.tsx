@@ -5,9 +5,8 @@ import mockImage from '@/assets/orig.jpg'
 import Image from 'next/image'
 
 import Link from 'next/link'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { RatingInfo } from '../RatingInfo/RatingInfo'
-import { SkeletonBackground } from '../SkeletonBackground/SkeletonBackground'
 import styles from './MovieItemInfo.module.scss'
 
 interface iMovieInfo {
