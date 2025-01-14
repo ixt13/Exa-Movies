@@ -1,5 +1,3 @@
-import { create } from 'zustand'
-
 interface iBearStore {
 	count: {
 		genre: string
@@ -10,14 +8,14 @@ interface iBearStore {
 	resetCount: () => void
 }
 
-const countStore = create<iBearStore>(set => ({
-	count: {
-		genre: string
-		movieType: number
-		year: number
-	}
-	increaseCount: () => set(state => ({ count.year: state.count.movieType + 1 })),
-	resetCount: () => set({ count: 0 }),
-}))
+// const countStore = create<iBearStore>(set => ({
+// 	count: {
+// 		genre: string
+// 		movieType: number
+// 		year: number
+// 	}
+// 	increaseCount: () => set(state => ({ count.year: state.count.movieType + 1 })),
+// 	resetCount: () => set({ count: 0 }),
+// }))
 
-export default countStore
+// export default countStore
