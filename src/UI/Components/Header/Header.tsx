@@ -1,4 +1,5 @@
 'use client'
+import countStore from '@/zustand/countStore'
 import Link from 'next/link'
 import { useState } from 'react'
 import { HeaderPopup } from '../HeaderPopup/HeaderPopup'
@@ -9,6 +10,7 @@ import { SerialsIcon } from '../Svg/SerialsIcon/SerialsIcon'
 import styles from './Header.module.scss'
 
 export const Header = () => {
+	const { data, setGenre, setMovieType, setYear } = countStore()
 	const [isPopup, setIsPopup] = useState<boolean>(false)
 	const [isOverflow, setIsOverflow] = useState<boolean>(false)
 
@@ -24,7 +26,6 @@ export const Header = () => {
 			<Link href={'/home/1'} className={styles.title}>
 				<h1>Exa Movies</h1>
 			</Link>
-
 			<nav className={styles.navigation}>
 				<ul>
 					<li onClick={handleTogglePopupVisability}>
@@ -45,7 +46,6 @@ export const Header = () => {
 					</li>
 				</ul>
 			</nav>
-
 			<HeaderPopup
 				className={` ${styles.popup} ${
 					isPopup ? styles.popupVisible : styles.popupHidden
