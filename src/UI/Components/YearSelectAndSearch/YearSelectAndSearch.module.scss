@@ -59,6 +59,7 @@
 	flex-direction: column-reverse;
 }
 .selectYearPopup {
+	animation: fadeIn 0.5s ease-out forwards;
 	border-bottom: 2px solid currentColor;
 	padding: 2px 0px 2px 0px;
 	position: absolute;
