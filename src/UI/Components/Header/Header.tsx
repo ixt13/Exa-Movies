@@ -12,7 +12,7 @@ import styles from './Header.module.scss'
 
 export const Header = () => {
 	const { setGenre, setMovieType, setYear, data, reset } = countStore()
-	const [isPopup, setIsPopup] = useState<boolean>(true)
+	const [isPopup, setIsPopup] = useState<boolean>(false)
 	const isHoverRef = useRef({ isHover: false })
 	const isTypeOfMovieRef = useRef(null)
 	const handleMouseLeave = () => {
