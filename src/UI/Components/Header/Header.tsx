@@ -45,7 +45,7 @@ export const Header = () => {
 						className={`${styles.navItem} ${
 							data.movieType === 1 && styles.liSelected
 						}`}
-						onClick={e => {
+						onClick={() => {
 							setIsPopup(true)
 							setMovieType(1)
 						}}
