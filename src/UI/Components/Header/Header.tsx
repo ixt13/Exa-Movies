@@ -58,7 +58,7 @@ export const Header = () => {
 						className={`${styles.navItem} ${
 							data.movieType === 2 && styles.liSelected
 						}`}
-						onClick={e => {
+						onClick={() => {
 							setIsPopup(true)
 							setMovieType(2)
 						}}
@@ -71,7 +71,7 @@ export const Header = () => {
 						className={`${styles.navItem} ${
 							data.movieType === 3 && styles.liSelected
 						}`}
-						onClick={e => {
+						onClick={() => {
 							setIsPopup(true)
 							setMovieType(3)
 						}}
@@ -84,7 +84,7 @@ export const Header = () => {
 						className={`${styles.navItem} ${
 							data.movieType === 4 && styles.liSelected
 						}`}
-						onClick={e => {
+						onClick={() => {
 							setIsPopup(true)
 							setMovieType(4)
 						}}
