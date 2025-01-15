@@ -9,6 +9,7 @@ interface iSearchForm {
 	setGenre: (genre: string) => void
 	setMovieType: (movieType: number) => void
 	setYear: (year: number) => void
+	reset: () => void
 }
 
 const countStore = create<iSearchForm>(set => ({
@@ -21,6 +22,14 @@ const countStore = create<iSearchForm>(set => ({
 	setMovieType: movieType =>
 		set(state => ({ data: { ...state.data, movieType } })),
 	setYear: year => set(state => ({ data: { ...state.data, year } })),
+	reset: () =>
+		set(() => ({
+			data: {
+				genre: null,
+				movieType: null,
+				year: null,
+			},
+		})),
 }))
 
 export default countStore

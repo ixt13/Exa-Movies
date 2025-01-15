@@ -45,33 +45,20 @@
 		&:hover {
 			cursor: pointer;
 
-			color: #1e1e24;
+			color: #444140;
 		}
 		p {
 			font-size: 16px;
 		}
 	}
 }
-
-.popup {
-	position: absolute;
-	z-index: 2;
-	width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	transition: all 0.2s cubic-bezier(0.39, 0.575, 0.565, 1), visibility 0s 0.2s;
-	overflow: hidden;
+.liSelected {
+	color: #1e1e24 !important;
 }
 
-.popupHidden {
-	height: 0px;
+.navList {
+	height: 100%;
 }
-.popupVisible {
-	height: 276px;
-	visibility: visible;
-}
-
-.popupOverflowAuto {
-	overflow: visible;
+.navItem {
+	height: 100%;
 }

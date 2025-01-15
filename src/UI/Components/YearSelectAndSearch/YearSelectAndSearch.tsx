@@ -5,8 +5,12 @@ import { ArrowIcon } from '../Svg/ArrowIcon/ArrowIcon'
 import { SearchIconInput } from '../Svg/SearchIconInput/SearchIconInput'
 import styles from './YearSelectAndSearch.module.scss'
 
-export const YearSelectAndSearch = () => {
-	const [year, setYear] = useState<string | number>('Выберите год')
+interface iYearSelectAndSearchProps {
+	setYear: (year: number) => void
+}
+
+export const YearSelectAndSearch = ({ setYear }: iYearSelectAndSearchProps) => {
+	const [handleYear, handleSetYear] = useState<string | number>('Выберите год')
 	const [isPopup, setIsPopup] = useState<boolean>(false)
 	const currentYear = new Date().getFullYear()
 
@@ -27,7 +31,7 @@ export const YearSelectAndSearch = () => {
 						isPopup && styles.selectYearStaticSelected
 					}`}
 				>
-					<p>{year}</p>
+					<p>{handleYear}</p>
 					<ArrowIcon className={styles.arrowIcon} />
 				</div>
 				<div
@@ -40,7 +44,8 @@ export const YearSelectAndSearch = () => {
 					{years.map((el, index) => (
 						<p
 							onClick={() => {
-								setYear(el)
+								handleSetYear(el)
+								setYear(parseInt(el))
 								HandleToggleYearsPupup()
 							}}
 							className={styles.yearsTextContent}
