@@ -31,7 +31,7 @@
 }
 .selectYearStaticSelected {
 	background-color: #ff804e;
-	border-radius: 8px 8px 0px 0px;
+	border-radius: 0px 0px 8px 8px;
 	svg {
 		transform: rotate(270deg);
 	}
@@ -55,16 +55,20 @@
 .selectYear {
 	position: relative;
 	width: 124px;
+	display: flex;
+	flex-direction: column-reverse;
 }
 .selectYearPopup {
-	border-top: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
 	padding: 2px 0px 2px 0px;
 	position: absolute;
+
 	background-color: #ff804e;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-bottom: 40px;
 }
 
 .yearsTextContent {
@@ -86,7 +90,7 @@
 .selectYearPopupVisible {
 	display: flex;
 	overflow: auto;
-	height: 400px;
+	height: 186px;
 }
 
 .arrowIcon {

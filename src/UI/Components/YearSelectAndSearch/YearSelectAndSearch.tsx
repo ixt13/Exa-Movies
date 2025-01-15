@@ -11,7 +11,7 @@ interface iYearSelectAndSearchProps {
 
 export const YearSelectAndSearch = ({ setYear }: iYearSelectAndSearchProps) => {
 	const [handleYear, handleSetYear] = useState<string | number>('Выберите год')
-	const [isPopup, setIsPopup] = useState<boolean>(false)
+	const [isPopup, setIsPopup] = useState<boolean>(true)
 	const currentYear = new Date().getFullYear()
 
 	const years = Array.from({ length: 50 }, (_, index) => {
