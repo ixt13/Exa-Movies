@@ -10,6 +10,7 @@ export interface iParams {
 	limit?: string
 	page?: string
 	id?: string[]
+	'genres.name': string[]
 }
 export interface iqueryParamsProps {
 	queryParamsProps: iParams
@@ -25,7 +26,7 @@ export async function getMoviesUniversal({
 	const url = new URL(baseUrl)
 
 	const queryParams = { ...queryParamsProps, token: SECRET_TOKEN }
-
+	console.log(queryParams)
 	Object.entries(queryParams).forEach(([key, value]) => {
 		if (Array.isArray(value)) {
 			value.forEach(v => url.searchParams.append(key, v))

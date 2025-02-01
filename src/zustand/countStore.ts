@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-interface iSearchForm {
+export interface iSearchForm {
 	data: {
 		genre: string | null
 		movieType: number | null

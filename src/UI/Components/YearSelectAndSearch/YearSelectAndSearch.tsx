@@ -1,5 +1,5 @@
-'use client'
-
+import { getMoviesUniversal } from '@/ApiReq/getMoviesUniversal/getMoviesUniversal'
+import countStore from '@/zustand/countStore'
 import { useState } from 'react'
 import { ArrowIcon } from '../Svg/ArrowIcon/ArrowIcon'
 import { SearchIconInput } from '../Svg/SearchIconInput/SearchIconInput'
@@ -7,6 +7,12 @@ import styles from './YearSelectAndSearch.module.scss'
 
 interface iYearSelectAndSearchProps {
 	setYear: (year: number) => void
+}
+
+interface funcProps {
+	genre: string | null
+	movieType: number | null
+	year: number | null
 }
 
 export const YearSelectAndSearch = ({ setYear }: iYearSelectAndSearchProps) => {
@@ -22,6 +28,22 @@ export const YearSelectAndSearch = ({ setYear }: iYearSelectAndSearchProps) => {
 		setIsPopup(prevState => !prevState)
 	}
 
+	const { data } = countStore()
+
+	const handleGetMovies = async (colectedData: funcProps) => {
+		try {
+			const response = await getMoviesUniversal({
+				queryParamsProps: {
+					year: [colectedData.year?.toString() || ''],
+					type: colectedData.movieType?.toString() || '',
+					'genres.name': [colectedData.genre || ''],
+				},
+			})
+			return response
+		} catch (error) {
+			return error
+		}
+	}
 	return (
 		<div className={`${styles.yearSelectAndSearch} `}>
 			<div className={styles.selectYear}>
@@ -56,9 +78,14 @@ export const YearSelectAndSearch = ({ setYear }: iYearSelectAndSearchProps) => {
 					))}
 				</div>
 			</div>
-			<div className={styles.search}>
+			<button
+				onClick={() => {
+					console.log(handleGetMovies(data))
+				}}
+				className={styles.search}
+			>
 				<SearchIconInput style={{ height: '55%', width: '55%' }} />
-			</div>
+			</button>
 		</div>
 	)
 }
