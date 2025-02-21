@@ -1,4 +1,3 @@
-import { getMoviesUniversal } from '@/ApiReq/getMoviesUniversal/getMoviesUniversal'
 import countStore from '@/zustand/countStore'
 import { useState } from 'react'
 import { ArrowIcon } from '../Svg/ArrowIcon/ArrowIcon'
@@ -7,12 +6,6 @@ import styles from './YearSelectAndSearch.module.scss'
 
 interface iYearSelectAndSearchProps {
 	setYear: (year: number) => void
-}
-
-interface funcProps {
-	genre: string | null
-	movieType: number | null
-	year: number | null
 }
 
 export const YearSelectAndSearch = ({ setYear }: iYearSelectAndSearchProps) => {
@@ -30,20 +23,20 @@ export const YearSelectAndSearch = ({ setYear }: iYearSelectAndSearchProps) => {
 
 	const { data } = countStore()
 
-	const handleGetMovies = async (colectedData: funcProps) => {
-		try {
-			const response = await getMoviesUniversal({
-				queryParamsProps: {
-					year: [colectedData.year?.toString() || ''],
-					type: colectedData.movieType?.toString() || '',
-					'genres.name': [colectedData.genre || ''],
-				},
-			})
-			return response
-		} catch (error) {
-			return error
-		}
+	const handleGetMovies = async () => {
+		const queryParams = new URLSearchParams({
+			year: data.year?.toString() || '',
+			movieType: data.movieType?.toString() || '',
+			'genres.name': data.genre?.toString() || '',
+		}).toString()
+
+		const response = await fetch(`/api?${queryParams}`)
+
+		const responseData = await response.json()
+		console.log(response)
+		console.log(responseData)
 	}
+
 	return (
 		<div className={`${styles.yearSelectAndSearch} `}>
 			<div className={styles.selectYear}>
@@ -80,7 +73,7 @@ export const YearSelectAndSearch = ({ setYear }: iYearSelectAndSearchProps) => {
 			</div>
 			<button
 				onClick={() => {
-					console.log(handleGetMovies(data))
+					handleGetMovies()
 				}}
 				className={styles.search}
 			>
